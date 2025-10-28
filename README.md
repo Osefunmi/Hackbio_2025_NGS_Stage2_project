@@ -1,4 +1,4 @@
-### Hackbio_2025_NGS_Stage2_project
+# Hackbio_2025_NGS_Stage2_project
 ## Transcriptomic Profiling of Staphylococcus aureus During Acute vs Chronic Phases of Periprosthetic Joint Infection (PJI)
 Background and Rationale
 Periprosthetic joint infections (PJIs) are among the most devastating complications of orthopedic implants. They increase morbidity, prolong hospital stays, and often require costly revision surgeries. Staphylococcus aureus—particularly methicillin-resistant strains (MRSA)—is a leading cause of PJIs.
