@@ -156,8 +156,20 @@ visit (https://igv.org/app/) specifiy your genome and upload the bam and bai fil
 
 ### Generate count matrices of gene expression for acute and chronic isolates.
 
+`mkdir Counts`
 
+`cd Counts`
 
+`wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_genomic.gff.gz`
 
-##Step 2:
+`mv GCF_000013425.1_ASM1342v1_genomic.gff.gz S_aureus.gff.gz`
+
+`gunzip S_aureus.gff.gz`
+`ls`
+FEATURE COUNTS
+If data was unpaired the right way to do feature counts is to use the code "featureCounts -O -t gene -g ID -a S_aureus.gff -o counts.txt ../IGV/*.bam" our data is paired so we have to go through another route.
+
+`featureCounts -p -B -C --primary -T 8 -t gene -g ID -a S_aureus.gff -o counts.txt ../IGV/*.bam` .... this didn't work
+
+## Step 2:
 
