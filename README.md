@@ -17,8 +17,11 @@ Reveal regulatory RNAs and transcriptional signatures linked to biofilm persiste
 
 ## Step 1: Preprocessing and Quality Control
 ### Perform read trimming, alignment to the S. aureus reference genome, and assessment of sequencing quality.
+
 `mkdir data && cd data`
+
 `nano data.sh`
+
 ```
 #!/usr/bin/env bash
 curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR209/079/SRR20959679/SRR20959679_1.fastq.gz -o SRR20959679_1.fastq.gz
@@ -38,9 +41,13 @@ curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR209/078/SRR20959678/SRR20959678_2.
 
 ```
 save and close the bash script
+
 `bash data.sh`
+
 `cd ../`
+
 `nano preprocess.sh`
+
 ```
 #!/bin/bash
 #Quality control
@@ -74,15 +81,23 @@ do
 done
 gunzip data/*.fastq.gz
 ```
+
 `bash preprocess.sh`
+
 Getting the reference genome: go to the site https://www.ncbi.nlm.nih.gov/datasets/genome/. Search for the organism of interest (Staphylococcus aureus) and select the appropriate assembly. A good choice is a complete, "Reference" or "Representative" genome from a common strain. Use the download button or click FTP. Next, copy the link with ".fna.gz" as your reference genome and ".gff.gz or .gtf.gz" as annotation
+
 `mkdir Genome && cd Genome`
+
 `wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_genomic.fna.gz`
+
 `mv GCF_000013425.1_ASM1342v1_genomic.fna.gz s_aureus.fna.gz`
+
 `gunzip s_aureus.fna.gz`
+
 `cd ./`
 
 `nano runstar.sh`
+
 ```
 #!/bin/bash
 #performing star
@@ -130,9 +145,13 @@ done
 echo "All samples processed successfully!"
 
 ```
+
 `pwd`
+
 download the IGV folder to your local computer. The next code stores it in the folder Stage3_project in HackbioNGS in Downloads.
+
 `scp -r a_adegite@135.181.163.242:/home/a_adegite/Oluwasefunmi/Project/RNA_Seq/IGV Downloads/HackbioNGS/Stage3_project`
+
 visit (https://igv.org/app/) specifiy your genome and upload the bam and bai files to view.
 
 ### Generate count matrices of gene expression for acute and chronic isolates.
