@@ -169,7 +169,24 @@ visit (https://igv.org/app/) specifiy your genome and upload the bam and bai fil
 FEATURE COUNTS
 If data was unpaired the right way to do feature counts is to use the code "featureCounts -O -t gene -g ID -a S_aureus.gff -o counts.txt ../IGV/*.bam" our data is paired so we have to go through another route.
 
-`featureCounts -p -B -C --primary -T 8 -t gene -g ID -a S_aureus.gff -o counts.txt ../IGV/*.bam` .... this didn't work
+`featureCounts -p -B -C --primary -T 8 -t gene -g ID -a S_aureus.gff -o g_counts.txt ../IGV/*.bam` 
+Then you copy your counts.txt file to your computer.
+`scp -r a_adegite@135.181.163.242:/home/a_adegite/Oluwasefunmi/Project/RNA_Seq/Counts/g_counts.txt Downloads/HackbioNGS/Stage3_project`
+enter the password and the file would be saved.
 
-## Step 2:
+## Step 2: Differential Gene Expression Analysis
+First create your metadata in Google sheets and store it as a csv file.
+
+```
+Sample	State
+SRR20959676	Chronic
+SRR20959677	Chronic
+SRR20959678	Chronic
+SRR20959679	Chronic
+SRR20959680	Acute
+SRR20959681	Acute
+SRR20959682	Acute
+```
+The next steps would be done in your R studio. Make a 
+
 
