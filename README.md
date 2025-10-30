@@ -187,6 +187,17 @@ SRR20959680	Acute
 SRR20959681	Acute
 SRR20959682	Acute
 ```
-The next steps would be done in your R studio. Make a 
+The next steps would be done in R studio. I downloaded and installed R and R studio. I also installed Deseq2 and Pheat map. 
+
+```
+setwd('/Users/Sefunmi/Downloads/HackbioNGS/Stage3_project')
+library(DESeq2)
+library(pheatmap)
+c_e_count <- read.delim('g_counts.txt', header = T)
+c_e_meta <- read.csv('Metadata_S_aureus.csv', header = T) #stringsAsFactors = T
+#preview
+head(c_e_count)
+head(c_e_meta)
+
 
 
